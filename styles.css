@@ -1,0 +1,43 @@
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #2A4747;
+}
+
+.table {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    font-size: 1.25rem;
+    padding: 15px;
+}
+
+#display {
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: right;
+    color: #2A4747;
+}
+
+/* Dial buttons for better visibility */
+.btn-light {
+    background-color: #ddd !important;
+    color: #333 !important;
+    border: 1px solid #ccc;
+}
+
+.btn-light:hover {
+    background-color: #ccc !important;
+    color: #000 !important;
+}
+
+/* General table styling for better readability */
+.table {
+    background-color: #fff;
+}
+
