@@ -1,7 +1,7 @@
-// Initial values
-let remainingMonthly = 1350.33;
-let firstHalf = 239.67;
-let secondHalf = 1110.67;
+// Corrected Initial Values
+let remainingMonthly = 1268.00;
+let firstHalf = 173.00;
+let secondHalf = 1095.00;
 let displayValue = "0";
 
 // Update display
@@ -46,7 +46,6 @@ function adjustBudget(action, target) {
             break;
     }
 
-    // Display updated amount
     document.getElementById("updated-amount").innerText = `$${updatedValue.toFixed(2)}`;
     displayValue = "0";
     updateDisplay();
