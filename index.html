@@ -73,6 +73,8 @@
             <div class="text-center mb-3">
                 <div class="border p-3" id="display" style="font-size: 2rem;">0</div>
             </div>
+
+            <!-- Number Buttons -->
             <div class="row g-2">
                 <div class="col-4"><button class="btn btn-light w-100" onclick="addToDisplay(1)">1</button></div>
                 <div class="col-4"><button class="btn btn-light w-100" onclick="addToDisplay(2)">2</button></div>
@@ -85,16 +87,20 @@
                 <div class="col-4"><button class="btn btn-light w-100" onclick="addToDisplay(9)">9</button></div>
                 <div class="col-12"><button class="btn btn-light w-100" onclick="addToDisplay(0)">0</button></div>
             </div>
-            <div class="mt-3 d-flex justify-content-around">
+
+            <!-- Action Buttons -->
+            <div class="mt-3 d-flex justify-content-around flex-wrap gap-2">
                 <button class="btn btn-danger" onclick="adjustBudget('subtract', 'monthly')">Minus Monthly</button>
                 <button class="btn btn-danger" onclick="adjustBudget('subtract', 'first')">Minus First Half</button>
                 <button class="btn btn-danger" onclick="adjustBudget('subtract', 'second')">Minus Second Half</button>
             </div>
-            <div class="mt-2 d-flex justify-content-around">
+            <div class="mt-2 d-flex justify-content-around flex-wrap gap-2">
                 <button class="btn btn-success" onclick="adjustBudget('add', 'monthly')">Add Monthly</button>
                 <button class="btn btn-success" onclick="adjustBudget('add', 'first')">Add First Half</button>
                 <button class="btn btn-success" onclick="adjustBudget('add', 'second')">Add Second Half</button>
             </div>
+
+            <!-- Display Result Box -->
             <div class="mt-3 text-center">
                 <strong>Updated Amount:</strong>
                 <span id="updated-amount" style="font-size: 1.5rem;">N/A</span>
@@ -102,13 +108,13 @@
         </section>
     </div>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <!-- Sounds -->
     <audio id="sound-first" src="movie_1.mp3" preload="auto"></audio>
     <audio id="sound-second" src="emotional-damage-meme.mp3" preload="auto"></audio>
     <audio id="sound-add" src="yeah-boiii-i-i-i.mp3" preload="auto"></audio>
     <audio id="sound-monthly-subtract" src="tf_nemesis.mp3" preload="auto"></audio>
 
-
+    <!-- Script -->
+    <script src="script.js"></script>
 </body>
 </html>

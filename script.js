@@ -28,7 +28,7 @@ function playSound(id) {
     }
 }
 
-// Adjust budget for monthly, first half, or second half
+// Adjust budget for preview only (no actual value change)
 function adjustBudget(action, target) {
     const amount = parseFloat(displayValue);
     if (isNaN(amount) || amount <= 0) {
@@ -38,36 +38,54 @@ function adjustBudget(action, target) {
 
     let updatedValue;
 
-    // Play "yeah boii" on all additions
+    // Play sounds
     if (action === "add") {
         playSound("sound-add");
     }
 
     switch (target) {
         case "monthly":
-            updatedValue = action === "add" ? remainingMonthly + amount : remainingMonthly - amount;
-            remainingMonthly = updatedValue;
-            document.getElementById("total-remaining").innerText = `$${remainingMonthly.toFixed(2)}`;
+            updatedValue = action === "add"
+                ? remainingMonthly + amount
+                : remainingMonthly - amount;
             if (action === "subtract") playSound("sound-monthly-subtract");
             break;
 
         case "first":
-            updatedValue = action === "add" ? firstHalf + amount : firstHalf - amount;
-            firstHalf = updatedValue;
-            document.getElementById("first-half").innerText = `$${firstHalf.toFixed(2)}`;
+            updatedValue = action === "add"
+                ? firstHalf + amount
+                : firstHalf - amount;
             if (action === "subtract") playSound("sound-first");
             break;
 
         case "second":
-            updatedValue = action === "add" ? secondHalf + amount : secondHalf - amount;
-            secondHalf = updatedValue;
-            document.getElementById("second-half").innerText = `$${secondHalf.toFixed(2)}`;
+            updatedValue = action === "add"
+                ? secondHalf + amount
+                : secondHalf - amount;
             if (action === "subtract") playSound("sound-second");
             break;
     }
 
-    // Show updated amount
-    document.getElementById("updated-amount").innerText = `$${updatedValue.toFixed(2)}`;
+    // Update "Updated Amount" text
+    const updatedDisplay = document.getElementById("updated-amount");
+    updatedDisplay.innerText = `$${updatedValue.toFixed(2)}`;
+
+    // Remove any existing animation classes
+    updatedDisplay.classList.remove("pop", "wiggle");
+
+    if (action === "add") {
+        // Delay wiggle: wait 1.37s, then wiggle for 7s
+        setTimeout(() => {
+            updatedDisplay.classList.add("wiggle");
+            setTimeout(() => {
+                updatedDisplay.classList.remove("wiggle");
+            }, 7000); // wiggle for 7 seconds
+        }, 1370); // wait 1.37 seconds
+    } else {
+        // Pop instantly if subtracting
+        updatedDisplay.classList.add("pop");
+        setTimeout(() => updatedDisplay.classList.remove("pop"), 200);
+    }
 
     // Reset display
     displayValue = "0";
